@@ -1,0 +1,5 @@
+[
+  "What is the primary architecture pattern used in this project?",
+  "How does the caching system handle invalidation?",
+  "List the dependencies required for the frontend."
+]

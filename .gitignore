@@ -1,13 +1,19 @@
+cat > /home/nazar/PycharmProjects/technical-docs-assistant/.gitignore <<'EOF'
 __pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
-.env
-venv/
-env/
-*.log
 .coverage
 htmlcov/
 .idea/
+.venv/
+venv/
+env/
+*.log
+.env
+local_data/
+final_smoke_test.txt
+final_smoke_test_v2.txt
+EOF

@@ -1,0 +1,15 @@
+from datetime import datetime
+from uuid import UUID
+
+from pydantic import BaseModel, ConfigDict
+
+from src.models.document import DocumentStatus
+
+
+class DocumentResponse(BaseModel):
+    id: UUID
+    filename: str
+    status: DocumentStatus
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

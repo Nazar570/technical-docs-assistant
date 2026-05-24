@@ -32,6 +32,7 @@ class Document(Base):
         Enum(DocumentStatus), default=DocumentStatus.PENDING, nullable=False
     )
     error_message: Mapped[str | None] = mapped_column(String, nullable=True)
+    parsed_text_path: Mapped[str | None] = mapped_column(String, nullable=True)
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda: datetime.now(UTC)

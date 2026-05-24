@@ -2,6 +2,7 @@ from collections.abc import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import declarative_base
+from sqlalchemy.pool import NullPool
 
 from src.core.config import settings
 
@@ -9,6 +10,7 @@ engine = create_async_engine(
     settings.async_database_uri,
     echo=settings.environment == "development",
     future=True,
+    poolclass=NullPool,
 )
 
 AsyncSessionLocal = async_sessionmaker(
@@ -22,7 +24,6 @@ Base = declarative_base()
 
 
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
-    """Dependency for FastAPI endpoints to get a DB session."""
     async with AsyncSessionLocal() as session:
         try:
             yield session
